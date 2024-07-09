@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app-deployment
+spec:
+  replicas: 1  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+        - name: project2clo
+          image: jainamshah24/project2clo835:latest  # Replace with your Docker image name
+          ports:
+            - containerPort: 3030  # Expose the port your application listens on
